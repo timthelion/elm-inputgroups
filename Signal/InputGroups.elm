@@ -7,24 +7,19 @@ This module provides the ability to have InputGroups or groups of inputs which c
 
 Here is some example code(toggle between two mario games by pressing down the left mouse button.):
 
+````
 import Keyboard
 import Mouse
 import Window
-
-type InputGroup a = -- Arg, why no exticential types in Elm?
- {add: Signal a -> a -> Signal a}
-
-makeGroup: Signal Bool -> InputGroup a
-makeGroup toggle =
- {add = (\signal a-> keepWhen toggle a signal)}
+import Signal.InputGroups as InputGroups
 
 group1Toggle = Mouse.isDown
-group1 = makeGroup group1Toggle
+group1 = InputGroups.makeGroup group1Toggle
 
 group1Input = group1.add input (0,{x=0,y=0})
 
 group2Toggle = not <~ Mouse.isDown
-group2 = makeGroup group2Toggle
+group2 = InputGroups.makeGroup group2Toggle
 
 group2Input = group2.add input (0,{x=0,y=0})
 
@@ -74,3 +69,4 @@ type InputGroup a = -- Arg, why no exticential types in Elm?
 makeGroup: Signal Bool -> InputGroup a
 makeGroup toggle =
  {add = (\signal a-> keepWhen toggle a signal)}
+````

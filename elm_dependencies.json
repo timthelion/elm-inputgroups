@@ -1,4 +1,4 @@
-{ "version": "0.0"
+{ "version": "0.1"
 , "summary": "Make groups of inputs that can be switched on and off easily"
 , "description":
   "This library allows you to group inputs and then toggle those groups on and off."
