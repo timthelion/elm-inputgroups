@@ -69,4 +69,3 @@ type InputGroup a = -- Arg, why no exticential types in Elm?
 makeGroup: Signal Bool -> InputGroup a
 makeGroup toggle =
  {add = (\signal a-> keepWhen toggle a signal)}
-````
